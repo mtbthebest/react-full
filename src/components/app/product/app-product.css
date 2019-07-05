@@ -1,0 +1,36 @@
+.product {
+    margin: 2%;
+    border: 1px solid #e0fbe9;
+    border-radius: 2.0rem;
+    height: 10.0rem;
+
+}
+.product-image{
+    width: 50%;
+    margin: 2%;
+    padding-top: 10%;
+
+}
+.product-content{
+
+}
+.product-name{
+    margin-bottom: 0%;
+}
+.product-separator{
+    border: 1px solid #e0fbe9;
+    width: 0.3rem  !important;
+    height: 10.0rem;
+    background-color: #90a1ff;
+    
+}
+.product-category{
+    margin-bottom: 0%;
+}
+.product-category a{
+    color: cornflowerblue;
+}
+
+i{
+    margin-right: 2%;
+}
