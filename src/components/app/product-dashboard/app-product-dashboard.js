@@ -3,6 +3,7 @@ import ProductsList from "../products/products-component";
 import ProductFormComponent from "../product-form/product-form-component";
 import Products from "../../../utils/products";
 import Product from "../../../utils/product";
+import {ProductsContext} from '../context'
 
 class ProductDashboard extends React.Component{
     constructor(props){
@@ -47,7 +48,7 @@ class ProductDashboard extends React.Component{
         });
     }
     addProduct(product){
-        let products = this.state.products.concat(new Product(this.state.products.length, product.name, product.category,product.price, product.img))
+        let products = this.state.products.concat(new Product(this.state.products.length + 1, product.name, product.category,product.price, product.img))
         this.setState({
             products: products
         })
@@ -64,21 +65,24 @@ class ProductDashboard extends React.Component{
 
         if(!editMode){
             return(
+                <ProductsContext.Provider value={this.state.products} >
                 <div className='container'>
                     {products_list}
                     <div className='btn btn-primary'>
                         <i className='fa fa-plus fa-2x' style={{backgroundColor: 'blue'}} onClick={e=>this.setState({editMode: true})} />
                     </div>
                 </div>
+                </ProductsContext.Provider>
             )}
 
         else {
             return(
-
+                <ProductsContext.Provider value={this.state.products} >
                 <div className='container'>
                     {products_list}
                     <ProductFormComponent addProduct={this.addProduct} cancelProduct={this.cancelProduct} />
                 </div>
+                </ProductsContext.Provider>
             )
         }
 

@@ -1,33 +1,26 @@
 import React from 'react'
 import ProductComponent from "../product/product-component";
 import ProductFormComponent from "../product-form/product-form-component";
+import {ProductsContext} from "../context";
 
 class ProductsList extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-            products:props.products ||  []
-        }
+    static contextType = ProductsContext
 
-    }
-    componentWillReceiveProps(nextProps, nextContext) {
-        this.setState({
-            products: nextProps.products
-        })
+    constructor(props, context){
+        super(props, context);
     }
 
     render(){
-        let {products} = this.state
-
         return(
-            products.map((product, i) =>{
-                return (
-                    <div className='container'  key={i}>
-                        <ProductComponent onRemove={(e) =>this.props.removeProduct(product.id)} addProduct={this.props.editProduct} product={product} />
-                    </div>
+           <ProductsContext.Consumer>
+                        {context =>(
+                            context.map((product) =>(
+                    <div className='container'  key={product.id}>
+                        <ProductComponent key={product.id} onRemove={(e) =>this.props.removeProduct(product.id)} addProduct={this.props.editProduct} product={product} />
+                    </div>)))}
+                    </ProductsContext.Consumer>
                 )
-            })
-        )
+
     }
 
 

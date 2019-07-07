@@ -49,6 +49,7 @@ class ProductComponent extends React.Component {
                 )
             }
             return (
+
                 <div className='container product' key={product.id}
                      style={mouseOver ? {backgroundColor: '#007bff40'} : {backgroundColor: 'white'}}>
                     <div className='row' onMouseEnter={(e) => this.productChangeBackground(e)}
@@ -62,7 +63,7 @@ class ProductComponent extends React.Component {
                         <div className='col-8 product-content d-flex justify-content-center'>
                             <div className='row'>
                                 <div className='col justify-content-end product-name'>
-                                    <h1>{product.name} </h1>
+                                    <h1><a href={'/' +product.name} style={{color: 'black'}}> {product.name}</a> </h1>
                                 </div>
                                 <div className='w-100'/>
                                 <div className='col'>

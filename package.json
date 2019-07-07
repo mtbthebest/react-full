@@ -15,7 +15,8 @@
     "webpack": "4.29.6",
     "webpack-cli": "^3.3.4",
     "eslint-plugin-react": "^7.14.2",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "history": "^4.9.0"
   },
   "scripts": {
     "start": "react-scripts start",
